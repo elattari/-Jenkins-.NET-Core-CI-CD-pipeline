@@ -9,6 +9,10 @@ pipeline {
                sh '/usr/local/bin/dotnet restore WebApplication.sln'
             }
          }        
-             
+         stage('Clean'){
+           steps{
+               sh 'dotnet clean WebApplication.sln --configuration Release'
+            }
+         }    
     }
 }
