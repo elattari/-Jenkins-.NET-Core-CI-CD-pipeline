@@ -35,7 +35,7 @@ pipeline {
                        kill -9 $pid
                done'''
                sh 'cd WebApplication/bin/Release/netcoreapp3.1/publish/'
-               sh 'nohup dotnet WebApplication.dll --urls="http://192.168.9.85:9990" --ip="192.168.9.85" --port=9990 --no-restore > /dev/null 2>&1 &'
+               sh 'nohup /bin/dotnet3/dotnet WebApplication.dll --urls="http://192.168.9.85:9990" --ip="192.168.9.85" --port=9990 --no-restore > /dev/null 2>&1 &'
              }
          }
     }
