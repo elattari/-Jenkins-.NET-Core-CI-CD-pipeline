@@ -6,14 +6,16 @@ pipeline {
     stages {
         
         stage('SonarQube analysis') {
-            def scannerHome = tool 'sonarqube';
-            withSonarQubeEnv('sonarqube') {
-              sh "${scannerHome}/bin/sonar-scanner \
-              -D sonar.login=admin \
-              -D sonar.password=A*P7Jhoz12V2 \
-              -D sonar.projectKey=testNet3 \
-              -D sonar.host.url=http://localhost:9000/"
-           }
+            steps{
+               def scannerHome = tool 'sonarqube';
+               withSonarQubeEnv('sonarqube') {
+                  sh "${scannerHome}/bin/sonar-scanner \
+                  -D sonar.login=admin \
+                  -D sonar.password=A*P7Jhoz12V2 \
+                  -D sonar.projectKey=testNet3 \
+                  -D sonar.host.url=http://localhost:9000/"
+               }
+           }     
         }
         
         stage('Restore packages'){
